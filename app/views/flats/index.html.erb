@@ -1,0 +1,37 @@
+﻿<div class="container">
+  <% if params[:search]  %>
+    <h1>All our flats (<%= @flats.count %>)</h1>
+    <p>You search for <b><%= params[:search] %></b>. We found <%= @flats.count %> flats out of our <%= @flats_all.count %> on our website.</p>
+  <% else %>
+    <h1>All our flats (<%= @flats.count %>)</h1>
+  <% end %>
+  <div class="grid">
+    <% @flats.each do |flat| %>
+      <div class="card">
+        <figure>
+        <%= link_to flat_path(flat) do %>
+          <%= image_tag "#{flat.picture_url}", class: "card-img-top" %>
+        <% end %>
+        </figure>
+        <div class="card-body flat-body">
+          <h5 class="card-title"><%= flat.name %></h5>
+          <p class="card-text"><%= flat.address %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><i class="fas fa-euro-sign">  <%= flat.price_per_night %>  </i></li>
+          <li class="list-group-item"><i class="fas fa-users">  <%= flat.number_of_guests %>  </i> </li>
+        </ul>
+        <div class="card-body flat-footer">
+          <%= link_to "More info", flat_path(flat), class: "navbar-link" %>
+          <%= link_to "Edit", edit_flat_path(flat), class: "navbar-link" %>
+          <%# link_to "Remove", root_path, class: "navbar-link" %>
+
+          <%= link_to flat_path(flat), class: "navbar-link",
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this flat?" } do %>
+           Delete
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

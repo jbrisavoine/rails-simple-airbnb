@@ -13,3 +13,97 @@
  *= require_tree .
  *= require_self
  */
+
+ body{
+  padding-bottom: 10px;
+}
+
+.grid{
+  display: inline-grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+figure{
+  margin-bottom: 0;
+
+  img{
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
+.card{
+  box-shadow: 0px 1px 3px rgb(230, 230, 230);
+}
+
+.flat-footer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flat-body{
+  background-color: rgb(245, 245, 245);
+  height: 110px;
+}
+
+
+.show-container{
+  margin: 0 auto;
+  width: 70%;
+  margin-top: -60px;
+
+  .show-container-left,
+  .show-container-right{
+    div{
+      background-color: rgb(240, 240, 240);
+      padding: 30px;
+      border-radius: 3px;
+      margin-bottom: 20px;
+      box-shadow: 0px 2px 1px 1px #e4e4e4;
+    }
+  }
+
+  .show-container-left{
+    width: 67%;
+    margin-right: 3%;
+  }
+
+  .show-container-right{
+    width: 30%;
+
+    .buttons-edit{
+      margin-left: 3px;
+    }
+
+    .buttons-back{
+      margin-right: 3px;
+    }
+  }
+}
+
+.flat-image{
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  box-shadow: 2px 2px 6px #b6b6b6;
+}
+
+.share-links{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+
+  i{
+    font-size: 40px;
+    cursor: pointer;
+
+  }
+
+  i:hover{
+    color: black;
+  }
+}
